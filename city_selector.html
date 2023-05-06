@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Image Selector with Search and Navigation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        .city-selector-wrapper {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            appearance: none;
+            background-color: #f8f8f8;
+            margin-bottom: 10px;
+        }
+
+        .city-selector {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .city-selector a img {
+            max-height: 100px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: none;
+        }
+
+        .city-selector img:last-child {
+            margin-right: 0;
+        }
+    </style>
+    <script>
+        function searchCity() {
+            var searchInput = document.getElementById("searchInput");
+            var searchText = searchInput.value.toLowerCase();
+            var cityImages = document.querySelectorAll(".city-selector img");
+
+            cityImages.forEach(function(img) {
+                var cityName = img.alt.toLowerCase();
+                if (cityName.includes(searchText)) {
+                    img.style.display = "inline-block";
+                } else {
+                    img.style.display = "none";
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="city-selector-wrapper">
+        <input type="text" id="searchInput" placeholder="Search city..." oninput="searchCity()">
+        <div class="city-selector">
+            <a href="/new_york.html">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu_%28cropped%29.jpg/1200px-View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu_%28cropped%29.jpg" alt="New York" style="display:inline-block;">
+            </a>
+            <a href="/los_angeles.html">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/32/20190616154621%21Echo_Park_Lake_with_Downtown_Los_Angeles_Skyline.jpg" alt="Los Angeles" style="display:inline-block;">
+            </a>
+            <a href="/chicago.html">
+                <img src="https://assets.editorial.aetnd.com/uploads/2010/03/gettyimages-584791924.jpg" alt="Chicago" style="display:inline-block;">
+            </a>
+            <a href="https://www.835studios.com/835-studios">
+                <img src="https://wdet.org/wp-content/uploads/2021/07/dearborn_sign-1024x576
